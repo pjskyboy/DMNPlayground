@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<dmn11:definitions xmlns="http://www.trisotech.com/definitions/_b27ca105-c515-498f-81e9-b28cd10a628e" xmlns:feel="http://www.omg.org/spec/FEEL/20140401" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:trisofeed="http://trisotech.com/feed" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="DMN Modeler" exporterVersion="6.1.22.4" id="_b27ca105-c515-498f-81e9-b28cd10a628e" name="simple_multi_output_dmn" namespace="http://www.trisotech.com/definitions/_b27ca105-c515-498f-81e9-b28cd10a628e" triso:logoChoice="Default" xmlns:dmn11="http://www.omg.org/spec/DMN/20151101/dmn.xsd">
+  <dmn11:extensionElements/>
+  <dmn11:itemDefinition isCollection="false" label="tDecisionLogic1Output" name="tDecisionLogic1Output">
+    <dmn11:itemComponent id="_c49863ce-2f16-44b7-a0a0-85ad4e258f56" isCollection="false" name="part1">
+      <dmn11:typeRef>feel:string</dmn11:typeRef>
+      <dmn11:allowedValues triso:constraintsType="enumeration">
+        <dmn11:text>"abc","xyz"</dmn11:text>
+      </dmn11:allowedValues>
+    </dmn11:itemComponent>
+    <dmn11:itemComponent id="_d8881ba4-5790-472b-a3fa-d50a792dd27f" isCollection="false" name="part2">
+      <dmn11:typeRef>tpart2</dmn11:typeRef>
+    </dmn11:itemComponent>
+  </dmn11:itemDefinition>
+  <dmn11:itemDefinition label="tpart2" name="tpart2">
+    <dmn11:typeRef>feel:string</dmn11:typeRef>
+    <dmn11:allowedValues triso:constraintsType="enumeration">
+      <dmn11:text>"111","222"</dmn11:text>
+    </dmn11:allowedValues>
+  </dmn11:itemDefinition>
+  <dmn11:decision id="_141c1885-f335-4f6d-86dd-72013f3780b3" name="Decision Logic 1">
+    <dmn11:variable id="_82900047-8733-4be1-b27d-ccf80f300705" name="Decision Logic 1" typeRef="tDecisionLogic1Output"/>
+    <dmn11:informationRequirement>
+      <dmn11:requiredInput href="#inputData__2090de98-de39-40d3-ae1a-e2ff923e7f02"/>
+    </dmn11:informationRequirement>
+    <dmn11:decisionTable hitPolicy="UNIQUE" id="_c5ab2c7c-dd11-44d5-a999-b197b6c0ec7b" outputLabel="Decision Logic 1" triso:expressionId="_f693621b-3208-4ad5-ac1e-f3a3d5d747d7" typeRef="tDecisionLogic1Output">
+      <dmn11:input id="_2090de98-de39-40d3-ae1a-e2ff923e7f02">
+        <dmn11:inputExpression typeRef="feel:string">
+          <dmn11:text>Input1</dmn11:text>
+        </dmn11:inputExpression>
+        <dmn11:inputValues triso:constraintsType="enumeration">
+          <dmn11:text>"123","456"</dmn11:text>
+        </dmn11:inputValues>
+      </dmn11:input>
+      <dmn11:output id="_198a47dc-4676-4abe-8d1c-deafddd6f4f5" name="part1" typeRef="feel:string">
+        <dmn11:outputValues triso:constraintsType="enumeration">
+          <dmn11:text>"abc","xyz"</dmn11:text>
+        </dmn11:outputValues>
+      </dmn11:output>
+      <dmn11:output id="_790842ac-a621-4007-b71d-3a962047702e" name="part2" typeRef="tpart2">
+        <dmn11:outputValues triso:constraintsType="enumeration">
+          <dmn11:text>"111","222"</dmn11:text>
+        </dmn11:outputValues>
+      </dmn11:output>
+      <dmn11:rule id="_a71b4a79-756a-4338-aab2-1e809873006a">
+        <dmn11:inputEntry id="_aea22aad-6914-4ada-9d8e-46f8947b079a">
+          <dmn11:text>"123"</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:outputEntry id="_96fb7176-661f-42df-82ed-0c254f850cb0">
+          <dmn11:text>"abc"</dmn11:text>
+        </dmn11:outputEntry>
+        <dmn11:outputEntry id="_fb516a3c-40fd-486f-982c-e8062f51cd36">
+          <dmn11:text>"111"</dmn11:text>
+        </dmn11:outputEntry>
+      </dmn11:rule>
+      <dmn11:rule id="_4712b8ef-6779-4fe8-93ad-5906623bb65a">
+        <dmn11:inputEntry id="_03632cff-c0f0-4c2a-9aff-1e25ec0f9a20">
+          <dmn11:text>"456"</dmn11:text>
+        </dmn11:inputEntry>
+        <dmn11:outputEntry id="_869d934a-5760-4a0a-98a2-f2ff9634175f">
+          <dmn11:text>"xyz"</dmn11:text>
+        </dmn11:outputEntry>
+        <dmn11:outputEntry id="_1603d793-5521-45a6-8f31-de8870de7728">
+          <dmn11:text>"222"</dmn11:text>
+        </dmn11:outputEntry>
+      </dmn11:rule>
+    </dmn11:decisionTable>
+  </dmn11:decision>
+  <dmn11:inputData id="inputData__2090de98-de39-40d3-ae1a-e2ff923e7f02" name="Input1">
+    <dmn11:variable id="_3e45b2bc-6c44-4dfe-baf1-229494ba0d8c" name="Input1" typeRef="feel:string"/>
+  </dmn11:inputData>
+</dmn11:definitions>
